@@ -5,10 +5,6 @@ import (
 	"math"
 )
 
-type str struct {
-	Name string
-}
-
 func deg2rad(deg float64) float64 {
 	return deg * (math.Pi / 180)
 }
@@ -28,31 +24,37 @@ func main() {
 	// using openweather api mean by city name
 	// or by latitude and longitude
 
-	// latitude and longitude of delhi
-	lat1 := 28.9875
-	lon1 := 79.4141
-
-	// latitude and longitude of hydrabad
-	lat2 := 28.7041
-	lon2 := 77.1025
-
-	result := distace(lat1, lon1, lat2, lon2)
-	fmt.Println("Result is: ", result)
-
 	var input string
 	for {
 
-		println("hello")
-		// in which unit you want to see
-		// enter city 1
-		// enter latitude and logitude for city 1 separated by comma
-		// enter city 2
-		// enter latitude and longigude fPor city 2 separted by comma
-		// do you want to continue
+		// lat1 := 28.9875
+		// lon1 := `79.4141`
+		// lat2 := 28.7041
+		// lon2 := 77.1025
 
-		fmt.Printf("Please provide your input: ")
+		city := ""
+		fmt.Printf("Enter city name:")
+		fmt.Scanf("%s", &city)
+
+		srcLat, srcLon := 0.0, 0.0
+		fmt.Print("Enter Source Latitude: ")
+		fmt.Scanf("%f", &srcLat)
+		fmt.Print("Enter Source Longitude: ")
+		fmt.Scanf("%f", &srcLon)
+
+		destLat, destLon := 0.0, 0.0
+		fmt.Print("Enter Destination Latitude: ")
+		fmt.Scanf("%f", &destLat)
+		fmt.Print("Enter Destination Longitude:")
+		fmt.Scanf("%f", &destLon)
+
+		result := distace(srcLat, srcLon, destLat, destLon)
+		fmt.Println("Distance of two cities is: ", result)
+
+		// do you want to continue
+		fmt.Print("Do you want to continue, press n to exit and any other keys to continue:")
 		fmt.Scanf("%s", &input)
-		if input == "exit" {
+		if input == "n" || input == "no" {
 			break
 		} else {
 			fmt.Println(input)
