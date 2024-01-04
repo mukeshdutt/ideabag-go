@@ -42,6 +42,7 @@ func main() {
 	var input string
 	for {
 
+		println("hello")
 		// in which unit you want to see
 		// enter city 1
 		// enter latitude and logitude for city 1 separated by comma
