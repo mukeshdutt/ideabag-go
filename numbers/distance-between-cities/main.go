@@ -21,20 +21,23 @@ func distace(lat1, lon1, lat2, lon2 float64) float64 {
 
 func main() {
 
-	// using openweather api mean by city name
-	// or by latitude and longitude
-
 	var input string
 	for {
 
-		// lat1 := 28.9875
-		// lon1 := `79.4141`
-		// lat2 := 28.7041
-		// lon2 := 77.1025
+		/* --- Delhi's latitude and longitude
+		lat1 := 28.9875
+		lon1 := `79.4141
 
-		city := ""
-		fmt.Printf("Enter city name:")
-		fmt.Scanf("%s", &city)
+		--- Hydrabad latitude and longitude
+		lat2 := 28.7041
+		lon2 := 77.1025
+		*/
+
+		srcCity, destCity := "", ""
+		fmt.Printf("Enter source city name:")
+		fmt.Scanf("%s", &srcCity)
+		fmt.Printf("Enter destination city name:")
+		fmt.Scanf("%s", &destCity)
 
 		srcLat, srcLon := 0.0, 0.0
 		fmt.Print("Enter Source Latitude: ")
@@ -48,8 +51,8 @@ func main() {
 		fmt.Print("Enter Destination Longitude:")
 		fmt.Scanf("%f", &destLon)
 
-		result := distace(srcLat, srcLon, destLat, destLon)
-		fmt.Println("Distance of two cities is: ", result)
+		distance := distace(srcLat, srcLon, destLat, destLon)
+		fmt.Printf("Distance between two cities %s and %s is: %f \n", srcCity, destCity, distance)
 
 		// do you want to continue
 		fmt.Print("Do you want to continue, press n to exit and any other keys to continue:")
